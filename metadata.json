@@ -1,0 +1,7 @@
+{
+  "name": "VC 0.2 Quantum Cube Business Cloud -Alpha Generation ",
+  "description": "A futuristic, neon-accented financial operating system featuring the Yusra AI assistant, real-time analytics, and comprehensive business management modules.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantum Cube Business Cloud - Alpha Generation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        qg: {
+                            dark: '#05050F',
+                            card: '#13132B',
+                            accent: '#00FFA3',
+                            pink: '#FF6EC7',
+                            yellow: '#FFD500',
+                            border: 'rgba(255, 255, 255, 0.08)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'blob': 'blob 7s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+        :root {
+            --bg-primary: #f8fafc;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            --blob-opacity: 0.2;
+        }
+
+        .dark {
+            --bg-primary: #05050F;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --glass-bg: rgba(19, 19, 43, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            --blob-opacity: 0.4;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .quantum-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: var(--bg-primary);
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        .quantum-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: var(--blob-opacity);
+            animation: blob 10s infinite alternate;
+            transition: opacity 0.3s ease;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00FFA3; 
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .glass-panel-hover:hover {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(0, 255, 163, 0.5);
+            box-shadow: 0 0 20px rgba(0, 255, 163, 0.15);
+        }
+
+        .dark .glass-panel-hover:hover {
+            background: rgba(19, 19, 43, 0.6);
+            border-color: rgba(0, 255, 163, 0.3);
+            box-shadow: 0 0 20px rgba(0, 255, 163, 0.1);
+        }
+
+        .neon-text-green {
+            text-shadow: 0 0 10px rgba(0, 255, 163, 0.5);
+        }
+        
+        .neon-border-green {
+            box-shadow: 0 0 5px rgba(0, 255, 163, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="quantum-bg">
+        <div class="quantum-blob bg-blue-600 w-96 h-96 top-0 left-0" style="animation-delay: 0s;"></div>
+        <div class="quantum-blob bg-purple-600 w-96 h-96 bottom-0 right-0" style="animation-delay: 2s;"></div>
+        <div class="quantum-blob bg-emerald-500 w-64 h-64 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-20" style="animation-delay: 4s;"></div>
+    </div>
+    <div id="root" role="main"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
