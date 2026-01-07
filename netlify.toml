@@ -4,7 +4,7 @@
   functions = "netlify/functions"
 
 [functions]
-  node_bundle = true
+  node_bundle = {}
 
 [[redirects]]
   from = "/api/init"
@@ -12,7 +12,7 @@
   status = 200
 
 [[redirects]]
-  from = "/api/yusra"
+  from = "/api/yusra/executive"
   to = "/.netlify/functions/yusra-executive"
   status = 200
 
