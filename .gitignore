@@ -1,10 +1,12 @@
-node_modules/
+# env files (NEVER commit)
 .env
-*.log
-*.zip
-.DS_Store
-Thumbs.db
-__pycache__/
+.env.*
+!.env.example
+!.env.*.example
+
+# Netlify local state
+.netlify/
+
+# Node
+node_modules/
 dist/
-build/
-.cache/
